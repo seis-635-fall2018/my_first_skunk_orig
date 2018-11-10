@@ -3,9 +3,9 @@ import edu.princeton.cs.introcs.*;
 public class SkunkUI implements UI
 {
 
-	public SkunkDomain skunkDomain;
+	public SkunkController skunkDomain;
 
-	public void setDomain(SkunkDomain skunkDomain)
+	public void setDomain(SkunkController skunkDomain)
 	{
 		this.skunkDomain = skunkDomain;
 

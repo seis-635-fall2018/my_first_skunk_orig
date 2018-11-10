@@ -6,6 +6,7 @@ public class Player
 	public int roundScore;
 	public int gameScore; // for now, same as roundScore
 	public int numberChips;
+	public String playerName; //refactored to have player own name
 
 	public Player()
 	{
@@ -14,12 +15,14 @@ public class Player
 		this.roundScore = 0;
 		this.gameScore = 0;
 		this.numberChips = 50; // for now
+		
 	}
 
-	public Player(int startingChipsPerPlayer)
+	public Player(int startingChipsPerPlayer, String playerName)
 	{
 		this();
 		this.numberChips = startingChipsPerPlayer;
+		this.playerName = playerName;
 	}
 
 	public static void main(String[] args)
