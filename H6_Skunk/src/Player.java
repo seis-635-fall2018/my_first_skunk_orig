@@ -6,6 +6,7 @@ public class Player
 	public int roundScore;
 	public int gameScore; // for now, same as roundScore
 	public int numberChips;
+	public String name;
 
 	public Player()
 	{
@@ -78,6 +79,11 @@ public class Player
 		return this.roundScore;
 	}
 
+
+	public void setName(String name) 
+	{
+		this.name = name;
+	}
 
 
 }

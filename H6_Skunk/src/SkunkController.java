@@ -63,7 +63,7 @@ public class SkunkController
 				if (skunkDice.getLastRoll() == 2)
 				{
 					ui.println("Two Skunks! You lose the turn, the round score, plus pay 4 chips to the kitty");
-					scoreRoll(4);
+					scoreRoll(activePlayer, 4);
 					wantsToRoll = false;
 					break;
 				}
@@ -71,14 +71,14 @@ public class SkunkController
 				{
 					ui.println(
 							"Skunks and Deuce! You lose the turn, the turn score, plus pay 2 chips to the kitty");
-					scoreRoll(2);
+					scoreRoll(activePlayer, 2);
 					wantsToRoll = false;
 					break;
 				}
 				else if (skunkDice.getDie1().getLastRoll() == 1 || skunkDice.getDie2().getLastRoll() == 1)
 				{
 					ui.println("One Skunk! You lose the turn, the turn score, plus pay 1 chip to the kitty");
-					scoreRoll(1);
+					scoreRoll(activePlayer, 1);
 					wantsToRoll = false;
 					break;
 
@@ -142,7 +142,7 @@ public class SkunkController
 				if (skunkDice.getLastRoll() == 2)
 				{
 					ui.println("Two Skunks! You lose the turn, the turn score, plus pay 4 chips to the kitty");
-					scoreRoll(4);
+					scoreRoll(activePlayer, 4);
 					wantsToRoll = false;
 					break;
 				}
@@ -150,14 +150,14 @@ public class SkunkController
 				{
 					ui.println(
 							"Skunks and Deuce! You lose the turn, the turn score, plus pay 2 chips to the kitty");
-					scoreRoll(2);
+					scoreRoll(activePlayer, 2);
 					wantsToRoll = false;
 
 				}
 				else if (skunkDice.getDie1().getLastRoll() == 1 || skunkDice.getDie2().getLastRoll() == 1)
 				{
 					ui.println("One Skunk! You lose the turn, the turn core, plus pay 1 chip to the kitty");
-					scoreRoll(1);
+					scoreRoll(activePlayer, 1);
 					wantsToRoll = false;
 				}
 				else
@@ -223,18 +223,32 @@ public class SkunkController
 		return true;
 	}
 
-	private void scoreRoll(int chipsLost) 
+	public void scoreRoll(Player activePlayer, int chipsLost) //refactored: removed duplicate code above
 	{
 		kitty += chipsLost;
 		activePlayer.setNumberChips(activePlayer.getNumberChips() - chipsLost);
 		activePlayer.setTurnScore(0);
-		activePlayer.setRoundScore(0);
+		if (chipsLost == 4)
+				activePlayer.setRoundScore(0);
 	}
 
 	public static void main(String[] args)
 	{
 		// TODO Auto-generated method stub
 
+	}
+
+	public void addPlayer(String name)
+	{
+		Player p = new Player(50);
+		p.setName(name);
+		this.players.add(new Player(50));
+		
+	}
+
+	public void startGame() 
+	{
+		
 	}
 
 }
