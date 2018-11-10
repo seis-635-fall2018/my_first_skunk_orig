@@ -1,4 +1,4 @@
-
+//sarah and russel refactored
 public class SkunkApp
 {
 	public SkunkUI skunkUI;
