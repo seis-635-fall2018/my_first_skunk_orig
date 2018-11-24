@@ -68,7 +68,7 @@ public class SkunkDomain
 				if (skunkDice.getLastRoll() == 2)
 				{
 					ui.println("Two Skunks! You lose the turn, the round score, plus pay 4 chips to the kitty");
-					scoreSkunkRoll(SkunkType.DOUBLE_SKUNK);
+					ScoringUtils.scoreSkunkRoll(SkunkType.DOUBLE_SKUNK, kitty, activePlayer);
 					wantsToRoll = false;
 					break;
 				}
@@ -76,14 +76,14 @@ public class SkunkDomain
 				{
 					ui.println(
 							"Skunks and Deuce! You lose the turn, the turn score, plus pay 2 chips to the kitty");
-					scoreSkunkRoll(SkunkType.DEUCE_SKUNK);
+					ScoringUtils.scoreSkunkRoll(SkunkType.DEUCE_SKUNK, kitty, activePlayer);
 					wantsToRoll = false;
 					break;
 				}
 				else if (skunkDice.getDie1().getLastRoll() == 1 || skunkDice.getDie2().getLastRoll() == 1)
 				{
 					ui.println("One Skunk! You lose the turn, the turn score, plus pay 1 chip to the kitty");
-					scoreSkunkRoll(SkunkType.SINGLE_SKUNK);
+					ScoringUtils.scoreSkunkRoll(SkunkType.SINGLE_SKUNK, kitty, activePlayer);
 					wantsToRoll = false;
 					break;
 
@@ -139,7 +139,7 @@ public class SkunkDomain
 				if (skunkDice.getLastRoll() == 2)
 				{
 					ui.println("Two Skunks! You lose the turn, the turn score, plus pay 4 chips to the kitty");
-					scoreSkunkRoll(SkunkType.DOUBLE_SKUNK);
+					ScoringUtils.scoreSkunkRoll(SkunkType.DOUBLE_SKUNK, kitty, activePlayer);
 					wantsToRoll = false;
 					break;
 				}
@@ -147,7 +147,7 @@ public class SkunkDomain
 				{
 					ui.println(
 							"Skunks and Deuce! You lose the turn, the turn score, plus pay 2 chips to the kitty");
-					scoreSkunkRoll(SkunkType.DEUCE_SKUNK);
+					ScoringUtils.scoreSkunkRoll(SkunkType.DEUCE_SKUNK,  kitty, activePlayer);
 					wantsToRoll = false;
 					break;
 
@@ -155,7 +155,7 @@ public class SkunkDomain
 				else if (skunkDice.getDie1().getLastRoll() == 1 || skunkDice.getDie2().getLastRoll() == 1)
 				{
 					ui.println("One Skunk! You lose the turn, the turn core, plus pay 1 chip to the kitty");
-					scoreSkunkRoll(SkunkType.SINGLE_SKUNK);
+					ScoringUtils.scoreSkunkRoll(SkunkType.SINGLE_SKUNK,  kitty, activePlayer);
 					wantsToRoll = false;
 					break;
 				}
@@ -220,30 +220,6 @@ public class SkunkDomain
 
 		ui.println("-----------------------");
 		return true;
-	}
-	
-	/*
-	 * Update scores and chips when any skunk is rolled
-	 */
-	private void scoreSkunkRoll(SkunkType type) { //refactored: Extract Method to remove duplicate scoring code
-		int chipChange = 0;
-		switch(type) {
-			case SINGLE_SKUNK:
-				chipChange = 1;
-				break;
-			case DOUBLE_SKUNK:
-				chipChange = 4;
-				break;
-			case DEUCE_SKUNK:
-				chipChange = 2;
-				break;
-		}
-		kitty += chipChange;
-		activePlayer.setNumberChips(activePlayer.getNumberChips() - chipChange);
-		activePlayer.setTurnScore(0);
-		if(type == SkunkType.DOUBLE_SKUNK) {
-			activePlayer.setRoundScore(0);
-		}
 	}
 	
 
