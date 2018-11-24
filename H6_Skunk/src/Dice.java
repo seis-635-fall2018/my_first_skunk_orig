@@ -65,7 +65,6 @@ public class Dice
 
 	public Die getDie1()
 	{
-		// TODO Auto-generated method stub
 		return this.die1;
 	}
 
@@ -82,26 +81,6 @@ public class Dice
 	public void setDie2(Die d)
 	{
 		this.die2 = d;
-	}
-	
-	public static final int NUM_TRIALS = 360;
-
-	public static void main(String[] args)
-	{
-		Dice dice1 = new Dice();
-		int doubleSkunkCount = 0;
-
-		for (int i = 0; i < NUM_TRIALS; i++)
-		{
-			dice1.roll();
-			StdOut.println(dice1);
-
-			if (dice1.getLastRoll() == 2)
-				doubleSkunkCount++;
-		}
-
-		StdOut.println("Actual count: " + doubleSkunkCount);
-		StdOut.println("Expected count: " + (NUM_TRIALS / 36.0));
 	}
 
 }
