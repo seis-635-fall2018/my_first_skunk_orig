@@ -108,19 +108,11 @@ public class SkunkDomain
 			ui.println("");
 			if (activePlayer.getRoundScore() >= WINNING_ROUND_SCORE)
 				gameNotOver = false;
-
-			ui.println("Scoreboard: ");
-			ui.println("Kitty has " + kitty);
-			ui.println("player name -- turn score -- round score -- chips");
-			ui.println("-----------------------");
-
-			for (int i = 0; i < numberOfPlayers; i++)
-			{
-				ui.println(playerNames[i] + " -- " + players.get(i).turnScore + " -- " + players.get(i).roundScore
-						+ " -- " + players.get(i).getNumberChips());
-			}
-			ui.println("-----------------------");
-
+			
+			//refactor: Extract Method 
+			//Code smell: run() method is very large, this starts to pull out some display-only features and moves them to SkunkUI
+			skunkUI.showEndOfTurn();
+			
 			ui.println("Turn passes to right...");
 
 			activePlayerIndex = (activePlayerIndex + 1) % numberOfPlayers;
@@ -229,7 +221,6 @@ public class SkunkDomain
 		ui.println("-----------------------");
 		return true;
 	}
-
 	
 	/*
 	 * Update scores and chips when any skunk is rolled

@@ -35,5 +35,19 @@ public class SkunkUI implements UI
 		StdOut.println(toPrint);
 		
 	}
+	
+	public void showEndOfTurn() {
+		println("Scoreboard: ");
+		println("Kitty has " + skunkDomain.kitty);
+		println("player name -- turn score -- round score -- chips");
+		println("-----------------------");
+
+		for (int i = 0; i < skunkDomain.numberOfPlayers; i++)
+		{
+			println(skunkDomain.playerNames[i] + " -- " + skunkDomain.players.get(i).turnScore + " -- " + skunkDomain.players.get(i).roundScore
+					+ " -- " + skunkDomain.players.get(i).getNumberChips());
+		}
+		println("-----------------------");
+	}
 
 }
