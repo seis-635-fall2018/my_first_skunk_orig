@@ -17,6 +17,11 @@ public class SkunkDomain
 	public boolean oneMoreRoll;
 
 	public Dice skunkDice;
+	
+	//Refactor: Replace magic number with symbolic constant
+	//Enables easy changing of these parameters
+	private final int WINNING_ROUND_SCORE = 100;
+	private final int STARTING_CHIP_COUNT = 50;
 
 	public SkunkDomain(SkunkUI ui)
 	{
@@ -41,7 +46,7 @@ public class SkunkDomain
 		{
 			ui.print("Enter name of player " + (playerNumber + 1) + ": ");
 			playerNames[playerNumber] = StdIn.readLine();
-			this.players.add(new Player(50));
+			this.players.add(new Player(STARTING_CHIP_COUNT));
 		}
 		activePlayerIndex = 0;
 		activePlayer = players.get(activePlayerIndex);
@@ -101,7 +106,7 @@ public class SkunkDomain
 			ui.println("Giving new round score of " + activePlayer.getRoundScore());
 
 			ui.println("");
-			if (activePlayer.getRoundScore() >= 50)
+			if (activePlayer.getRoundScore() >= WINNING_ROUND_SCORE)
 				gameNotOver = false;
 
 			ui.println("Scoreboard: ");
