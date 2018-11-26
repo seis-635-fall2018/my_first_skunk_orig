@@ -15,6 +15,7 @@ public class Player
 		this.gameScore = 0; //for now same as the roundscore. 
 		this.numberChips=50; 
 	}
+	
 
 	public Player(int startingChipsPerPlayer)
 	{
@@ -25,7 +26,7 @@ public class Player
 //	public static void main(String[] args)
 //	{
 //		// TODO Auto-generated method stub
-//		Player player = new Player();
+//		
 //		
 //	}
 
