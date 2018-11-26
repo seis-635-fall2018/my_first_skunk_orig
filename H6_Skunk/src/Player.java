@@ -12,8 +12,8 @@ public class Player
 		this.rollScore = 0;
 		this.turnScore = 0;
 		this.roundScore = 0;
-		this.gameScore = 0;
-		this.numberChips = 50; // for now
+		this.gameScore = 0; //for now same as the roundscore. 
+		this.numberChips=50; 
 	}
 
 	public Player(int startingChipsPerPlayer)
@@ -22,10 +22,12 @@ public class Player
 		this.numberChips = startingChipsPerPlayer;
 	}
 
-	public static void main(String[] args)
-	{
-		// TODO Auto-generated method stub
-	}
+//	public static void main(String[] args)
+//	{
+//		// TODO Auto-generated method stub
+//		Player player = new Player();
+//		
+//	}
 
 	public void addToRollScore(int lastTotal)
 	{
