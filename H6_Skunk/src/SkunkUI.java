@@ -3,11 +3,11 @@ import edu.princeton.cs.introcs.*;
 public class SkunkUI implements UI
 {
 
-	public SkunkDomain skunkDomain;
+	public SkunkController skunkController; //change domain to controller. 
 
-	public void setDomain(SkunkDomain skunkDomain)
+	public void setDomain(SkunkController skunkController)
 	{
-		this.skunkDomain = skunkDomain;
+		this.skunkController = skunkController;
 
 	}
 

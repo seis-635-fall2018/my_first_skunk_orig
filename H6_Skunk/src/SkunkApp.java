@@ -2,15 +2,15 @@
 public class SkunkApp
 {
 	public SkunkUI skunkUI;
-	public SkunkDomain skunkDomain;
+	public SkunkController skunkController;
 	public int numberOfPlayers;
 	public String[] playerNames;
 	
 	public SkunkApp()
 	{
 		skunkUI = new SkunkUI();
-		skunkDomain = new SkunkDomain(skunkUI);
-		skunkUI.setDomain(skunkDomain); 
+		skunkController = new SkunkController(skunkUI);
+		skunkUI.setDomain(skunkController); 
 		this.numberOfPlayers = 0;
 		this.playerNames = new String[20];
 		
@@ -22,7 +22,7 @@ public class SkunkApp
 	 */
 	public boolean run()
 	{
-		return skunkDomain.run();	
+		return skunkController.run();	
 	}
 	
 	public static void main(String[] args)
