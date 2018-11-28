@@ -17,7 +17,9 @@ public class skunkControllerTest {
 	{
 		SkunkController sc = new SkunkController(new SkunkUI());
 		
-		Player activePlayer = new Player(50);
+		//refactored: new Player created with name as part of the player object
+		String playerName = "testPlayer";
+		Player activePlayer = new Player(playerName);
 		activePlayer.setRollScore(0);
 		Die d1 = new Die(new int[] {1});
 		Die d2 = new Die(new int[] {1});

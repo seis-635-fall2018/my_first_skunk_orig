@@ -8,8 +8,10 @@ public class Player
 	public int numberChips;
 	public String name;
 
-	public Player()
+	public Player(String name)
 	{
+		// a player has to be given a name when created
+		this.name = name;
 		this.rollScore = 0;
 		this.turnScore = 0;
 		this.roundScore = 0;
@@ -19,7 +21,7 @@ public class Player
 
 	public Player(int startingChipsPerPlayer)
 	{
-		this();
+//		this(name);
 		this.numberChips = startingChipsPerPlayer;
 	}
 
@@ -65,8 +67,7 @@ public class Player
 
 	public String getName()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return this.name;
 	}
 
 	public void setRoundScore(int i)

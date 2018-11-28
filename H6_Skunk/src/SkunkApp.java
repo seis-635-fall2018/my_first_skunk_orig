@@ -4,7 +4,7 @@ public class SkunkApp
 	public SkunkUI skunkUI;
 	public SkunkController skunkDomain;
 	public int numberOfPlayers;
-	public String[] playerNames;
+//	public String[] playerNames;
 	
 	public SkunkApp()
 	{
@@ -12,7 +12,7 @@ public class SkunkApp
 		skunkDomain = new SkunkController(skunkUI);
 		skunkUI.setDomain(skunkDomain); 
 		this.numberOfPlayers = 0;
-		this.playerNames = new String[20];
+//		this.playerNames = new String[20];
 		
 	}
 

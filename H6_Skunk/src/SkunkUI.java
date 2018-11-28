@@ -32,7 +32,7 @@ public class SkunkUI implements UI
 		for (int playerNumber = 0; playerNumber < numberOfPlayers; playerNumber++)
 		{
 			this.print("Enter name of player " + (playerNumber + 1) + ": ");
-			skunkDomain.addPlayer(StdIn.readLine());
+		//	skunkDomain.addPlayer(StdIn.readLine());
 		}
 		activePlayerIndex = 0;
 		activePlayer = players.get(activePlayerIndex);
