@@ -4,18 +4,7 @@ import edu.princeton.cs.introcs.*;
 
 public class SkunkUI implements UI
 {
-	public int numberOfPlayers;
-	public String[] playerNames;
-	public ArrayList<Player> players;
 	public int kitty;
-
-	public Player activePlayer;
-	public int activePlayerIndex;
-
-	public boolean wantsToQuit;
-	public boolean oneMoreRoll;
-
-	public Dice skunkDice;
 
 	public SkunkUI()
 	{		
