@@ -11,7 +11,7 @@ public class SkunkController
 	// instead of storing the names in a String array [20]
 	// refactored the necessary changes to the whole class implementation
 	// for the Player object to manage its own name 
-	// obtain activePlayer name from the arraylist players
+	// obtain activePlayer name from the arraylist of players
 	public String playerNames; 
 	public ArrayList<Player> players;
 	public int kitty;
@@ -47,6 +47,7 @@ public class SkunkController
 		{
 			ui.print("Enter name of player " + (playerNumber + 1) + ": ");
 			String playerName = StdIn.readLine();
+			// Refactored:
 			// add new Player where the name is stored in the Player object
 			// changed initialize players with 50 chips since it is already set
 			this.players.add(new Player(playerName));

@@ -10,6 +10,8 @@ public class Player
 
 	public Player(String name)
 	{
+		// Refactored:
+		// player object is in charge of its name
 		// a player has to be given a name when created
 		this.name = name;
 		this.rollScore = 0;

@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -30,6 +32,33 @@ public class skunkControllerTest {
 		sc.scoreRoll(activePlayer, 4); //added active player as parameter
 		
 		assertEquals(activePlayer.getNumberChips(),46);
+	}
+	
+	//added JUnit test to get player name
+	@Test
+	public void test_get_CurrentPlayer_name() 
+	{
+		String playerName = "testPlayer";
+		Player activePlayer = new Player(playerName);
+		
+		assertEquals(activePlayer.getName(), "testPlayer");
+	}
+	
+	//added JUnit test to obtain the index of the active player
+	@Test
+	public void test_get_Active_Player_index() 
+	{
+		ArrayList<Player> players = new ArrayList<Player>();
+		players.add(new Player("Player1"));
+		players.add(new Player("Player2"));
+		players.add(new Player("Player3"));
+
+		int activePlayerIndex = 0;
+		for (int i = 0; i < players.size(); i++)
+		{
+			assertEquals(players.indexOf(players.get(i)), activePlayerIndex);
+			activePlayerIndex++;
+		}
 	}
 
 }
