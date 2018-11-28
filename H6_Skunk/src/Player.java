@@ -19,11 +19,12 @@ public class Player
 		this.numberChips = 50; // for now
 	}
 
-	public Player(int startingChipsPerPlayer)
-	{
-//		this(name);
-		this.numberChips = startingChipsPerPlayer;
-	}
+	// refactored: this method is not necessary anymore
+//	public Player(int startingChipsPerPlayer)
+//	{
+////		this(name);
+//		this.numberChips = startingChipsPerPlayer;
+//	}
 
 	public static void main(String[] args)
 	{

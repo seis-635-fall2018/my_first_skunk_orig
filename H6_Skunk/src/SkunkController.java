@@ -6,8 +6,12 @@ public class SkunkController
 	public SkunkUI skunkUI;
 	public UI ui;
 	public int numberOfPlayers;
-	// refactored creating a new player has to be given a name
+	
+	// refactored: creating a new player has to be given a name
 	// instead of storing the names in a String array [20]
+	// refactored the necessary changes to the whole class implementation
+	// for the Player object to manage its own name 
+	// obtain activePlayer name from the arraylist players
 	public String playerNames; 
 	public ArrayList<Player> players;
 	public int kitty;
@@ -242,6 +246,7 @@ public class SkunkController
 
 	}
 
+	// refactored: this method is not necessary anymore
 //	public void addPlayer(String name)
 //	{
 //		Player p = new Player(50);
