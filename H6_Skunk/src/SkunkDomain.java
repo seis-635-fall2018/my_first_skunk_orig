@@ -63,10 +63,7 @@ public class SkunkDomain
 				if (skunkDice.getLastRoll() == 2)
 				{
 					ui.println("Two Skunks! You lose the turn, the round score, plus pay 4 chips to the kitty");
-					kitty += 4;
-					activePlayer.setNumberChips(activePlayer.getNumberChips() - 4);
-					activePlayer.setTurnScore(0);
-					activePlayer.setRoundScore(0);
+					scoreSkunkRoll(activePlayer,4);
 					wantsToRoll = false;
 					break;
 				}
@@ -74,18 +71,14 @@ public class SkunkDomain
 				{
 					ui.println(
 							"Skunks and Deuce! You lose the turn, the turn score, plus pay 2 chips to the kitty");
-					kitty += 2;
-					activePlayer.setNumberChips(activePlayer.getNumberChips() - 2);
-					activePlayer.setTurnScore(0);
+					scoreSkunkRoll(activePlayer,2);
 					wantsToRoll = false;
 					break;
 				}
 				else if (skunkDice.getDie1().getLastRoll() == 1 || skunkDice.getDie2().getLastRoll() == 1)
 				{
 					ui.println("One Skunk! You lose the turn, the turn score, plus pay 1 chip to the kitty");
-					kitty += 1;
-					activePlayer.setNumberChips(activePlayer.getNumberChips() - 1);
-					activePlayer.setTurnScore(0);
+					scoreSkunkRoll(activePlayer,1);
 					wantsToRoll = false;
 					break;
 
@@ -149,9 +142,7 @@ public class SkunkDomain
 				if (skunkDice.getLastRoll() == 2)
 				{
 					ui.println("Two Skunks! You lose the turn, the turn score, plus pay 4 chips to the kitty");
-					kitty += 4;
-					activePlayer.setNumberChips(activePlayer.getNumberChips() - 4);
-					activePlayer.setTurnScore(0);
+					scoreSkunkRoll(activePlayer, 4);
 					wantsToRoll = false;
 					break;
 				}
@@ -159,19 +150,14 @@ public class SkunkDomain
 				{
 					ui.println(
 							"Skunks and Deuce! You lose the turn, the turn score, plus pay 2 chips to the kitty");
-					kitty += 2;
-					activePlayer.setNumberChips(activePlayer.getNumberChips() - 2);
-					activePlayer.setTurnScore(0);
+					scoreSkunkRoll(activePlayer,2);
 					wantsToRoll = false;
 
 				}
 				else if (skunkDice.getDie1().getLastRoll() == 1 || skunkDice.getDie2().getLastRoll() == 1)
 				{
 					ui.println("One Skunk! You lose the turn, the turn core, plus pay 1 chip to the kitty");
-					kitty += 1;
-					activePlayer.setNumberChips(activePlayer.getNumberChips() - 1);
-					activePlayer.setTurnScore(0);
-					activePlayer.setRoundScore(0);
+					scoreSkunkRoll(activePlayer,1);
 					wantsToRoll = false;
 				}
 				else
@@ -237,10 +223,30 @@ public class SkunkDomain
 		return true;
 	}
 
+	// refactored: removed all repetitive code and made into a method
+	// since each round is scored differently we have to add a parameter to account for each chip amount lost
+	public void scoreSkunkRoll(Player activePlayer, int chipsLost)
+	{
+		kitty += chipsLost;
+		activePlayer.setNumberChips(activePlayer.getNumberChips() - chipsLost);
+		activePlayer.setTurnScore(0);
+		if(chipsLost == 4)
+			activePlayer.setRoundScore(0);
+	}
+
 	public static void main(String[] args)
 	{
 		// TODO Auto-generated method stub
 
+	}
+
+	public void addPlayer(String name)
+	{
+		Player p = new Player(50);
+		p.setName(name);
+		
+		this.players.add(p);
+		
 	}
 
 }

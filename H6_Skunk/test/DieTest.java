@@ -74,7 +74,20 @@ public class DieTest
 		die.roll();
 		assertEquals("fourth value not wrapping back to first value 3", 2, die.getLastRoll());
 	}
-
+	
+	//Added JUnit test
+	@Test
+	public void test_roll_6_of_predictable_die_with_3_rolls()
+	{
+		die.roll();
+		die.roll();
+		die.roll();
+		die.roll();
+		die.roll();
+		die.roll();
+		assertEquals("fifth value not wrapping back to first value 4", 1, die.getLastRoll());
+	}
+	
 	@Test(expected = RuntimeException.class)
 	public void test_null_initial_int_array()
 	{
@@ -89,6 +102,23 @@ public class DieTest
 		{
 			Die die1 = new Die(null);
 			die1.roll();
+		}
+		catch (RuntimeException rexp)
+		{
+			return;
+		}
+
+		fail();
+	}
+	
+	//Added JUnit test
+	@Test()
+	public void test_null_initial_int_die2()
+	{
+		try
+		{
+			Die die2 = new Die(null);
+			die2.roll();
 		}
 		catch (RuntimeException rexp)
 		{

@@ -8,7 +8,7 @@ public class SkunkApp
 	
 	public SkunkApp()
 	{
-		skunkUI = new SkunkUI();
+		skunkUI = new SkunkUI(skunkUI);
 		skunkDomain = new SkunkDomain(skunkUI);
 		skunkUI.setDomain(skunkDomain); 
 		this.numberOfPlayers = 0;
