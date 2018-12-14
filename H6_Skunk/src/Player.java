@@ -29,7 +29,8 @@ public class Player
 
 	public void addToRollScore(int lastTotal)
 	{
-		rollScore += lastTotal;
+		//rollScore += lastTotal;
+		rollScore = rollScore + lastTotal;
 	}
 
 	public void setRollScore(int newRollScore)

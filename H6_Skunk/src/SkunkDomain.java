@@ -63,7 +63,8 @@ public class SkunkDomain
 				if (skunkDice.getLastRoll() == 2)
 				{
 					ui.println("Two Skunks! You lose the turn, the round score, plus pay 4 chips to the kitty");
-					kitty += 4;
+					//kitty += 4;
+					kitty = kitty + 4;
 					activePlayer.setNumberChips(activePlayer.getNumberChips() - 4);
 					activePlayer.setTurnScore(0);
 					activePlayer.setRoundScore(0);
@@ -74,7 +75,8 @@ public class SkunkDomain
 				{
 					ui.println(
 							"Skunks and Deuce! You lose the turn, the turn score, plus pay 2 chips to the kitty");
-					kitty += 2;
+					// kitty += 2;
+					kitty = kitty + 2;
 					activePlayer.setNumberChips(activePlayer.getNumberChips() - 2);
 					activePlayer.setTurnScore(0);
 					wantsToRoll = false;
