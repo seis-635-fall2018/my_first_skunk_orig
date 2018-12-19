@@ -27,11 +27,6 @@ public class Player
 		// TODO Auto-generated method stub
 	}
 
-	public void addToRollScore(int lastTotal)
-	{
-		rollScore += lastTotal;
-	}
-
 	public void setRollScore(int newRollScore)
 	{
 		this.rollScore = newRollScore;
