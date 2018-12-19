@@ -7,16 +7,16 @@ import org.junit.experimental.categories.Categories.ExcludeCategory;
 
 import edu.princeton.cs.introcs.StdOut;
 
-public class DieTest
+public class PredictableDieTest
 {
-	private Die die;
+	private PredictibleDie die;
 
 	@Before
 	public void setUp() throws Exception
 	{
 		int[] init_values = new int[]
 		{ 3, 2, 1 };
-		die = new Die(init_values);
+		die = new PredictibleDie(init_values);
 		// StdOut.println("setUp() called");
 
 	}
@@ -78,7 +78,7 @@ public class DieTest
 	@Test(expected = RuntimeException.class)
 	public void test_null_initial_int_array()
 	{
-		Die die1 = new Die(null);
+		PredictibleDie die1 = new PredictibleDie(null);
 		die1.roll();
 	}
 
@@ -87,7 +87,7 @@ public class DieTest
 	{
 		try
 		{
-			Die die1 = new Die(null);
+			PredictibleDie die1 = new PredictibleDie(null);
 			die1.roll();
 		}
 		catch (RuntimeException rexp)
